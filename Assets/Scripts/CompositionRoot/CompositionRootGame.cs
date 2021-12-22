@@ -6,8 +6,12 @@ namespace CompositionRoot
     {
         void Start()
         {
-            Debug.Log("a");
-            //new HealthModel
+            //Loads BaseLine stats from consistent stuff
+            
+            int recievedHealth = 100;
+
+            var healthController = new HealthController(recievedHealth);
+            
             //new Controller
             //new PlayerStuff
             //new EnemyFactory
