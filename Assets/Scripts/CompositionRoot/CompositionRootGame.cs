@@ -1,3 +1,4 @@
+using Gameplay.Controls;
 using UnityEngine;
 
 namespace CompositionRoot
@@ -8,10 +9,14 @@ namespace CompositionRoot
         {
             //Loads BaseLine stats from consistent stuff
             
-            int recievedHealth = 100;
-
-            var healthController = new HealthController(recievedHealth);
+            int receivedHealth = 100;
             
+            
+
+            var healthController = new HealthController(receivedHealth);
+
+            IMovementController movementController = gameObject.AddComponent<KeyboardMovementController>();
+
             //new Controller
             //new PlayerStuff
             //new EnemyFactory
