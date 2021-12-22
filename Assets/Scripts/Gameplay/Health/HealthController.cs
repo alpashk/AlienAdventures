@@ -1,49 +1,53 @@
 using System;
 
-
-
-public class HealthController : IHealthController
+namespace Gameplay.Health
 {
-    private Action<int> onHealthChanged;
-    private Action onDeath;
+    public class HealthController : IHealthController
+    {
+        private Action<int> onHealthChanged;
+        private Action onDeath;
     
-    private readonly int maxHealth;
-    private int currentHealth;
-    public HealthController(int baseHealth)
-    {
-        maxHealth = baseHealth;
-        currentHealth = baseHealth;
-    }
+        private readonly int maxHealth;
+        private int currentHealth;
 
-    public void SetupCallbacks(Action<int> onHealthChange = null, Action onDead = null)
-    {
-        if (onHealthChange != null)
+        public int MaxHealth => maxHealth;
+    
+        public HealthController(int baseHealth)
         {
-            this.onHealthChanged += onHealthChange;
+            maxHealth = baseHealth;
+            currentHealth = baseHealth;
         }
 
-        if (onDead != null)
+        public void SetupCallbacks(Action<int> onHealthChange = null, Action onDead = null)
         {
-            this.onDeath += onDead;
-        }
-    }
+            if (onHealthChange != null)
+            {
+                this.onHealthChanged += onHealthChange;
+            }
 
-    public void ChangeHealth(int changeAmount)
-    {
-        currentHealth += changeAmount;
-        if (currentHealth > maxHealth)
-        {
-            currentHealth = maxHealth;
-            onHealthChanged?.Invoke(currentHealth);
+            if (onDead != null)
+            {
+                this.onDeath += onDead;
+            }
         }
-        else if (currentHealth < 0)
+    
+        public void ChangeHealth(int changeAmount)
         {
-            onHealthChanged?.Invoke(currentHealth);
-            onDeath?.Invoke();
-        }
-        else
-        {
-            onHealthChanged?.Invoke(currentHealth);
+            currentHealth += changeAmount;
+            if (currentHealth > maxHealth)
+            {
+                currentHealth = maxHealth;
+                onHealthChanged?.Invoke(currentHealth);
+            }
+            else if (currentHealth < 0)
+            {
+                onHealthChanged?.Invoke(currentHealth);
+                onDeath?.Invoke();
+            }
+            else
+            {
+                onHealthChanged?.Invoke(currentHealth);
+            }
         }
     }
 }

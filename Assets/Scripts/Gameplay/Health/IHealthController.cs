@@ -1,7 +1,11 @@
 using System;
 
-public interface IHealthController
+namespace Gameplay.Health
 {
-    void ChangeHealth(int changeAmount);
-    void SetupCallbacks(Action<int> onHealthChange = null, Action onDead = null);
+    public interface IHealthController
+    {
+        int MaxHealth { get; }
+        void ChangeHealth(int changeAmount);
+        void SetupCallbacks(Action<int> onHealthChange = null, Action onDead = null);
+    }
 }
