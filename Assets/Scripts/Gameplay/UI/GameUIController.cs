@@ -12,8 +12,8 @@ namespace Gameplay.UI
 
         public void Setup(IHealthController healthController)
         {
-        
             healthController.SetupCallbacks(ChangeDisplayedHealth, DisplayDeathScreen);
+            maxHealth.text = healthController.MaxHealth.ToString();
         }
 
         private void ChangeDisplayedHealth(int currentHealth)
