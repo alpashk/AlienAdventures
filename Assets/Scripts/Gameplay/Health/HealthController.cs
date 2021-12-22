@@ -39,7 +39,7 @@ namespace Gameplay.Health
                 currentHealth = maxHealth;
                 onHealthChanged?.Invoke(currentHealth);
             }
-            else if (currentHealth < 0)
+            else if (currentHealth <= 0)
             {
                 onHealthChanged?.Invoke(currentHealth);
                 onDeath?.Invoke();
