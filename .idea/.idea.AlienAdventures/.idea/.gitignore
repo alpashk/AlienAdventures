@@ -1,0 +1,11 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/modules.xml
+/projectSettingsUpdater.xml
+/contentModel.xml
+/.idea.AlienAdventures.iml
+# Datasource local storage ignored files
+/../../../../../../:\UnityShit\AlienAdventures\.idea\.idea.AlienAdventures\.idea/dataSources/
+/dataSources.local.xml
