@@ -1,3 +1,4 @@
+using CompositionRoot.Gameplay.Weapons;
 using Gameplay.CheatScripts;
 using Gameplay.Controls;
 using Gameplay.ShipControls;
@@ -22,6 +23,8 @@ namespace CompositionRoot
             heatController.Initialize(100, 1);
 
             IMovementController movementController = gameObject.AddComponent<KeyboardMovementController>();
+            ShootingController shootingController = gameObject.AddComponent<ShootingController>();
+            shootingController.Initialize(movementController, heatController, new EditorWeapon());
 
             GameUIController uiController = Instantiate(uiPrefab);
             uiController.Setup(healthController, heatController);

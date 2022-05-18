@@ -19,6 +19,7 @@ namespace Gameplay.ShipData
 
         private Action<int> onHeatChanged;
         private Action onOverheat;
+        private Action onHeatReachedZero;
 
         #endregion
 
@@ -36,6 +37,12 @@ namespace Gameplay.ShipData
         {
             get => onOverheat;
             set => onOverheat = value;
+        }
+
+        public Action OnHeatReachedZero
+        {
+            get => onHeatReachedZero;
+            set => onHeatReachedZero = value;
         }
 
         public int MaxHeat => maxHeat;
@@ -67,14 +74,17 @@ namespace Gameplay.ShipData
             currentHeat += changeAmount;
             if (currentHeat > maxHeat)
             {
-                currentHeat = maxHeat;
                 onHeatChanged?.Invoke(currentHeat);
-                onOverheat?.Invoke();
+                if(changeAmount>0)
+                {
+                    onOverheat?.Invoke();
+                }
             }
             else if (currentHeat <= 0)
             {
                 currentHeat = 0;
                 onHeatChanged?.Invoke(currentHeat);
+                onHeatReachedZero?.Invoke();
             }
             else
             {

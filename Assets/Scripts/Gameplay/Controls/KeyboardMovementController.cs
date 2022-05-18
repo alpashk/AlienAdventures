@@ -14,9 +14,17 @@ namespace Gameplay.Controls
         public float XMove => xMove;
         public float YMove => yMove;
 
-        public Action OnShootPressed => onShootPressed;
+        public Action OnShootPressed
+        {
+            get => onShootPressed;
+            set => onShootPressed = value;
+        }
 
-        public Action OnKidnapPressed => onKidnapPressed;
+        public Action OnKidnapPressed
+        {
+            get => onKidnapPressed;
+            set => onKidnapPressed = value;
+        }
 
         private void Update()
         {
