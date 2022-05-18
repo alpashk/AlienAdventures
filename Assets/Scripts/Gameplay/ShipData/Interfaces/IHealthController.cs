@@ -1,11 +1,12 @@
 using System;
 
-namespace Gameplay.Health
+namespace Gameplay.ShipData.Interfaces
 {
     public interface IHealthController
     {
+        Action<int> OnHealthChanged { get; set; }
+        Action OnDeath { get; set; }
         int MaxHealth { get; }
         void ChangeHealth(int changeAmount);
-        void SetupCallbacks(Action<int> onHealthChange = null, Action onDead = null);
     }
 }

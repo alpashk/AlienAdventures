@@ -1,16 +1,17 @@
-using System;
-using Gameplay.Health;
+using Gameplay.ShipData.Interfaces;
 using UnityEngine;
 
 namespace Gameplay.CheatScripts
 {
-    public class HotkeyHealer : MonoBehaviour
+    public class HotkeyDebugger : MonoBehaviour
     {
         private IHealthController healthController;
+        private IHeatController heatController;
 
-        public void Setup(IHealthController healthController)
+        public void Setup(IHealthController healthController, IHeatController heatController)
         {
             this.healthController = healthController;
+            this.heatController = heatController;
         }
 
         private void Update()
@@ -22,6 +23,11 @@ namespace Gameplay.CheatScripts
             else if (Input.GetKeyDown(KeyCode.J))
             {
                 healthController.ChangeHealth(-10);
+            }
+
+            if (Input.GetKeyDown(KeyCode.O))
+            {
+                heatController.ChangeHeat(10);
             }
         }
     }

@@ -1,16 +1,31 @@
 using System;
+using Gameplay.ShipData.Interfaces;
 
-namespace Gameplay.Health
+namespace Gameplay.ShipData
 {
     public class HealthController : IHealthController
     {
         private Action<int> onHealthChanged;
         private Action onDeath;
-    
+
         private readonly int maxHealth;
         private int currentHealth;
+        
+
+        public Action<int> OnHealthChanged
+        {
+            get => onHealthChanged;
+            set => onHealthChanged = value;
+        }
+
+        public Action OnDeath
+        {
+            get => onDeath;
+            set => onDeath = value;
+        }
 
         public int MaxHealth => maxHealth;
+        
     
         public HealthController(int baseHealth)
         {
@@ -18,19 +33,6 @@ namespace Gameplay.Health
             currentHealth = baseHealth;
         }
 
-        public void SetupCallbacks(Action<int> onHealthChange = null, Action onDead = null)
-        {
-            if (onHealthChange != null)
-            {
-                this.onHealthChanged += onHealthChange;
-            }
-
-            if (onDead != null)
-            {
-                this.onDeath += onDead;
-            }
-        }
-    
         public void ChangeHealth(int changeAmount)
         {
             currentHealth += changeAmount;
