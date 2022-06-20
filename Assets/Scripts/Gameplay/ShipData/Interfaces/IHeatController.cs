@@ -2,7 +2,7 @@ using System;
 
 namespace Gameplay.ShipData.Interfaces
 {
-    public interface IHeatController
+    public interface IHeatController//
     {
         Action<int> OnHeatChanged { get; set; }
         Action OnOverheat { get; set; }

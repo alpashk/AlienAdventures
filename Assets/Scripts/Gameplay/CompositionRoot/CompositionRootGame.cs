@@ -1,7 +1,9 @@
-using CompositionRoot.Gameplay.Weapons;
+using CompositionRoot.Gameplay;
+using Gamepaly.LevelData;
+using Gameplay.Weapons;
+using Gameplay.Weapons.Visuals;
 using Gameplay.CheatScripts;
 using Gameplay.Controls;
-using Gameplay.ShipControls;
 using Gameplay.ShipData;
 using Gameplay.UI;
 using UnityEngine;
@@ -11,25 +13,31 @@ namespace CompositionRoot
     public class CompositionRootGame : MonoBehaviour
     {
         [SerializeField] private GameUIController uiPrefab;
-        [SerializeField] private ShipController shipController;
+        [SerializeField] private MainShip shipController;
+        [SerializeField] private Tracer shotPrefab;
+        [SerializeField] private LevelMover levelTarget;
+        [SerializeField] private Transform stationaryLevelTarget;
+        [SerializeField] private LevelData levelData;
+
+        [SerializeField] private BaseWeapon weapon;
 
         void Start()
         {
             //Loads BaseLine stats from consistent stuff
-            int receivedHealth = 100;
+            var levelConstructor = new LevelGenerator(levelData, levelTarget, stationaryLevelTarget);
             
+            int receivedHealth = 100;
             var healthController = new HealthController(receivedHealth);
+
             var heatController = gameObject.AddComponent<HeatController>();
             heatController.Initialize(100, 1);
-
+            
             IMovementController movementController = gameObject.AddComponent<KeyboardMovementController>();
-            ShootingController shootingController = gameObject.AddComponent<ShootingController>();
-            shootingController.Initialize(movementController, heatController, new EditorWeapon());
 
             GameUIController uiController = Instantiate(uiPrefab);
             uiController.Setup(healthController, heatController);
             
-            shipController.Initialize(movementController);
+            shipController.Initialize(movementController, weapon, healthController, heatController);
 
             //new PlayerStuff
             //new EnemyFactory

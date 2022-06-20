@@ -7,6 +7,9 @@ using UnityEngine.UI;
 public class MainMenuController : MonoBehaviour
 {
     [SerializeField] private Button play;
+    [SerializeField] private Button shopButton;
+
+    [SerializeField] private GameObject ShopWindow;
 
     public void Setup()
     {
@@ -21,6 +24,8 @@ public class MainMenuController : MonoBehaviour
             SceneManager.LoadScene("Gameplay");
             //playSound;
         });
+        
+        shopButton.onClick.AddListener(() => ShopWindow.SetActive(true));
     }
     
 }

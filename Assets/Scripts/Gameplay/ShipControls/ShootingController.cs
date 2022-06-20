@@ -1,19 +1,18 @@
 using System;
 using System.Collections;
-using CompositionRoot.Gameplay.Weapons;
+using Gameplay.Weapons;
 using Gameplay.Controls;
-using Gameplay.ShipData;
 using Gameplay.ShipData.Interfaces;
 using UnityEngine;
 
 namespace Gameplay.ShipControls
 {
-    public class ShootingController : MonoBehaviour
+    public class ShootingController : MonoBehaviour//
     {
         #region Fields
 
         [SerializeField] private Transform muzzle;
-        private IWeapon weapon;
+        private BaseWeapon weapon;
         private IHeatController heatController;
         private IMovementController movementController;
 
@@ -27,14 +26,14 @@ namespace Gameplay.ShipControls
 
         #region Methods
 
-        public void Initialize(IMovementController movementController, IHeatController heatController, IWeapon weapon)
+        public void Initialize(IMovementController movementController, IHeatController heatController, BaseWeapon weapon)
         {
             this.weapon = weapon;
             cooldown = weapon.ShotDelay;
             this.heatController = heatController;
             this.movementController = movementController;
             
-            weapon.Initialize(heatController, muzzle);
+            weapon.Initialize(heatController);
 
             movementController.OnShootPressed += MovementController_OnShoot;
             

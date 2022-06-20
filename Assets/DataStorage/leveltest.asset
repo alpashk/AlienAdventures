@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd94b438e4c84356839b544a482be827, type: 3}
+  m_Name: leveltest
+  m_EditorClassIdentifier: 
+  backgroundPrefab: {fileID: 0}
+  midgroundPrefab: {fileID: 0}
+  backgrounds:
+  - backgroundImage: {fileID: 21300000, guid: f9b8dfce9d6d1874cb962f1eca819a5c, type: 3}
+    amount: 8
+  - backgroundImage: {fileID: 21300000, guid: a93cdc99a7600174495cf0cf7a7eaa20, type: 3}
+    amount: 1
+  - backgroundImage: {fileID: 21300000, guid: 788e9ef9a05dd944dadaf81f7e06bb04, type: 3}
+    amount: 1
+  - backgroundImage: {fileID: 21300000, guid: 650784c945c832d469d978bb3a316e7f, type: 3}
+    amount: 1
+  - backgroundImage: {fileID: 21300000, guid: 788e9ef9a05dd944dadaf81f7e06bb04, type: 3}
+    amount: 1
+  - backgroundImage: {fileID: 21300000, guid: a93cdc99a7600174495cf0cf7a7eaa20, type: 3}
+    amount: 1
+  - backgroundImage: {fileID: 21300000, guid: a93cdc99a7600174495cf0cf7a7eaa20, type: 3}
+    amount: 1
+  - backgroundImage: {fileID: 21300000, guid: 788e9ef9a05dd944dadaf81f7e06bb04, type: 3}
+    amount: 1
+  - backgroundImage: {fileID: 21300000, guid: 650784c945c832d469d978bb3a316e7f, type: 3}
+    amount: 1
+  midgrounds: []
+  movingEnemies:
+  - movementTargets:
+    - {x: -0.63, y: 1.58, z: 0}
+    - {x: -1.56, y: 1.94, z: 0}
+    - {x: -2.03, y: 2.21, z: 0}
+    - {x: -2.92, y: 3.59, z: 0}
+    - {x: -0.63, y: 1.58, z: 0}
+    - {x: -1.56, y: 1.94, z: 0}
+    - {x: -2.03, y: 2.21, z: 0}
+    - {x: -2.92, y: 3.59, z: 0}
+    enemyPrefab: {fileID: 0}
+    onPathEnd: 0
+    enemyAmount: 5
+    enemyDelay: 2
+    startCoordinate: 10

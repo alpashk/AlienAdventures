@@ -31,12 +31,12 @@ namespace Gameplay.Controls
             xMove = Input.GetAxis("Horizontal");
             yMove = Input.GetAxis("Vertical");
             
-            if (Input.GetKeyDown(KeyCode.Z))
+            if (Input.GetKeyDown(KeyCode.R))
             {
                 onShootPressed?.Invoke();
             }
             
-            if (Input.GetKeyDown(KeyCode.X))
+            if (Input.GetKeyDown(KeyCode.T))
             {
                 onKidnapPressed?.Invoke();
             }

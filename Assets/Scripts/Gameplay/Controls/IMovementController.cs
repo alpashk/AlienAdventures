@@ -2,7 +2,7 @@ using System;
 
 namespace Gameplay.Controls
 {
-    public interface IMovementController
+    public interface IMovementController//
     {
         float XMove { get; }
         float YMove { get; }

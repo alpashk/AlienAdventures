@@ -11,12 +11,12 @@ TagManager:
   - 
   - Water
   - UI
+  - Background
+  - Midground
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - EnemyTarget
+  - EnemyTrajectory
+  - Player
   - 
   - 
   - 

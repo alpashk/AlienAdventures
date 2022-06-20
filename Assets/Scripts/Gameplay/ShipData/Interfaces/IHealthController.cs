@@ -2,7 +2,7 @@ using System;
 
 namespace Gameplay.ShipData.Interfaces
 {
-    public interface IHealthController
+    public interface IHealthController//
     {
         Action<int> OnHealthChanged { get; set; }
         Action OnDeath { get; set; }

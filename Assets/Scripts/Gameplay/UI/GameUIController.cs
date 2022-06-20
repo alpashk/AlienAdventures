@@ -2,42 +2,49 @@ using System.Threading.Tasks;
 using Gameplay.ShipData.Interfaces;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Gameplay.UI
 {
     public class GameUIController : MonoBehaviour
     {
-        [SerializeField] private TMP_Text health;
-        [SerializeField] private TMP_Text maxHealth;
+        [SerializeField] private Image healthImage;
+        [SerializeField] private Image heatImage;
         
         [SerializeField] private TMP_Text dead;
-        
-        [SerializeField] private TMP_Text heat;
-        [SerializeField] private TMP_Text maxHeat;
-        
+
         [SerializeField] private TMP_Text overheated;
+
+        private int maxHealth;
+        private int maxHeat;
 
         public void Setup(IHealthController healthController, IHeatController heatController)
         {
             healthController.OnDeath += DisplayDeathScreen;
             healthController.OnHealthChanged += ChangeDisplayedHealth;
-            maxHealth.text = healthController.MaxHealth.ToString();
+            
             ChangeDisplayedHealth(healthController.MaxHealth);
             
             heatController.OnOverheat += DisplayOverheatScreen;
             heatController.OnHeatChanged += ChangeDisplayedHeat;
-            maxHeat.text = heatController.MaxHeat.ToString();
+            heatController.OnHeatReachedZero += StopOverheatScreen;
+
+            maxHealth = healthController.MaxHealth;
+            maxHeat = heatController.MaxHeat;
+
+            healthImage.fillAmount = 1;
+            heatImage.fillAmount = 0;
             ChangeDisplayedHeat(0);
         }
 
         private void ChangeDisplayedHealth(int currentHealth)
         {
-            health.text = currentHealth.ToString();
+            healthImage.fillAmount = (float) currentHealth / maxHealth;
         }
         
         private void ChangeDisplayedHeat(int currentHeat)
         {
-            heat.text = currentHeat.ToString();
+            heatImage.fillAmount = (float) currentHeat / maxHeat;
         }
 
         private void DisplayDeathScreen()
@@ -45,11 +52,15 @@ namespace Gameplay.UI
             dead.text = "lol u died";
         }
 
-        private async void DisplayOverheatScreen()
+        private void DisplayOverheatScreen()
         {
             overheated.text = "overheated";
-            await Task.Delay(2000);
+        }
+
+        private void StopOverheatScreen()
+        {
             overheated.text = "";
         }
+        
     }
 }

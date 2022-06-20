@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="WinScreen">
+    <Position X="4.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAQAAAAAAAAAAAAAEAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\WinScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CriticalObject">
+    <Position X="11.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAECAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAEA=</HashCode>
+      <FileName>Assets\CriticalObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LevelMover">
+    <Position X="15" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAgAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\LevelMover.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShopUiScreen">
+    <Position X="9.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\ShopUiScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApplicationStart.GameInitializer">
+    <Position X="9.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\ApplicationStart\GameInitializer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CompositionRoot.ConsistentDataHolder">
+    <Position X="15" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\ConsistentDataHolder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CompositionRoot.CompositionRootGame">
+    <Position X="6.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAACAAAAAAAAAAAEAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Gameplay\CompositionRoot\CompositionRootGame.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CompositionRoot.CompositionRootMain">
+    <Position X="9.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\MainMenu\CompositionRoot\CompositionRootMain.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Gameplay.CheatScripts.HotkeyDebugger">
+    <Position X="6.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAASAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Gameplay\CheatScripts\HotkeyDebugger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Gameplay.Controls.KeyboardMovementController" BaseTypeListCollapsed="true">
+    <Position X="9.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAABAAAAAQQAAAAGAAAAAgACAAAAAg=</HashCode>
+      <FileName>Assets\Scripts\Gameplay\Controls\KeyboardMovementController.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Gameplay.Enemies.EnemyHealth">
+    <Position X="6.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Assets\Scripts\Gameplay\Enemies\EnemyHealth.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CompositionRoot.Gameplay.MainShip">
+    <Position X="13.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAEAAAAAQAAAgAgAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Gameplay\MainShip.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Gameplay.ShipControls.ShipController">
+    <Position X="4.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAQAAAAAAKgAAQAEAAAAIAAAAAAAAQEAAAAAAAAAAAg=</HashCode>
+      <FileName>Assets\Scripts\Gameplay\ShipControls\ShipController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Gameplay.ShipControls.ShootingController">
+    <Position X="8" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAQAgQAAAAQAAAAAAAAAACCAAAAgIIAAAQAAAAAg=</HashCode>
+      <FileName>Assets\Scripts\Gameplay\ShipControls\ShootingController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Gameplay.ShipData.HealthController" BaseTypeListCollapsed="true">
+    <Position X="11.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAACAQAAAAEAIAgAACEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Gameplay\ShipData\HealthController.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Gameplay.ShipData.HeatController" BaseTypeListCollapsed="true">
+    <Position X="13.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>hAAAAIIAEAAAAQEAAACAgAIAgEgAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Gameplay\ShipData\HeatController.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Gameplay.UI.GameUIController">
+    <Position X="15" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAEAEIAICAAAAAAAAQAAAAAAAAAAIAAKAAAAAAAAAAg=</HashCode>
+      <FileName>Assets\Scripts\Gameplay\UI\GameUIController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Gameplay.Weapons.EditorWeapon" BaseTypeListCollapsed="true">
+    <Position X="11.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAABQAAAAAAAAAAAAAAAAAAAAQAAAAEAAQ=</HashCode>
+      <FileName>Assets\Scripts\Gameplay\Weapons\EditorWeapon.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Gameplay.Weapons.TestGun" BaseTypeListCollapsed="true">
+    <Position X="8" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAQAAABQAAAAgAAAAAAAAAAAAAQAQAQAAEgAQ=</HashCode>
+      <FileName>Assets\Scripts\Gameplay\Weapons\TestGun.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.221" Collapsed="true" />
+  </Class>
+  <Class Name="Gameplay.Weapons.Visuals.Tracer">
+    <Position X="13.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAQAQAIAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Gameplay\Weapons\Visuals\Tracer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Gameplay.Controls.IMovementController">
+    <Position X="4.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAAQAAAACAAAAAAACAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Gameplay\Controls\IMovementController.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Gameplay.ShipData.Interfaces.IHealthController">
+    <Position X="6.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAEAIAgAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Gameplay\ShipData\Interfaces\IHealthController.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Gameplay.ShipData.Interfaces.IHeatController">
+    <Position X="2.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAIIAAAAAAAAAAACAgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Gameplay\ShipData\Interfaces\IHeatController.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Gameplay.Weapons.IWeapon">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABQAAAAAAAAAAAAAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Gameplay\Weapons\IWeapon.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
