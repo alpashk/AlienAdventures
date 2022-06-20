@@ -1,5 +1,6 @@
 using System.Linq;
 using Gamepaly.LevelData;
+using Gameplay.Enemies;
 using UnityEditor;
 using UnityEngine;
 
@@ -77,7 +78,6 @@ namespace Gameplay.LevelComponents.Editor
 
                     case 7:
                     {
-                        Debug.Log("hehe");
                         if (child.TryGetComponent(out SpriteRenderer sprite))
                         {
                             MidgroundData data =
@@ -93,6 +93,29 @@ namespace Gameplay.LevelComponents.Editor
                         }
                         break;
                     }
+
+                    case 9:
+                    {
+                        if (child.TryGetComponent(out EnemyData enemy))
+                        {
+                            var prefab = PrefabUtility.GetCorrespondingObjectFromSource(enemy);
+                            if (prefab != null)
+                            {
+                                StationaryEnemiesData data =
+                                    generatedLevel.StationaryEnemies.Find(x => x.Prefab == prefab);
+                                if (data != null)
+                                {
+                                    data.Positions.Add(child.position);
+                                }
+                                else
+                                {
+                                    generatedLevel.StationaryEnemies.Add(new StationaryEnemiesData(prefab, child.position));
+                                }
+                            }
+                        }
+
+                        break;
+                    }
                 }
             }
             
@@ -105,7 +128,7 @@ namespace Gameplay.LevelComponents.Editor
             GameObject stationaryTarget = GameObject.Find("StationaryLevel");
             GenerateBackground(levelTarget.transform);
             GenerateMidground(levelTarget.transform);
-
+            GenerateStationaryEnemies(levelTarget.transform);
             GenerateMovingEnemies(stationaryTarget.transform);
         }
         
@@ -135,6 +158,17 @@ namespace Gameplay.LevelComponents.Editor
                 {
                     LevelMidground midground = GameObject.Instantiate(midgroundPrefab, levelTarget);
                     midground.Setup(midgrounds.Image, position);
+                }
+            }
+        }
+
+        private void GenerateStationaryEnemies(Transform levelTarget)
+        {
+            foreach (StationaryEnemiesData stationaryEnemies in levelData.StationaryEnemies)
+            {
+                foreach (Vector3 position in stationaryEnemies.Positions)
+                {
+                    EnemyData enemy = GameObject.Instantiate(stationaryEnemies.Prefab, levelTarget);
                 }
             }
         }

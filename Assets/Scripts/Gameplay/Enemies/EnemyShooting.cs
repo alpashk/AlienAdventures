@@ -5,41 +5,48 @@ using UnityEngine;
 
 namespace Gameplay.Enemies
 {
-    public class EnemyShooting : MonoBehaviour
+    public class EnemyShooting
     {
-        [SerializeField] private EnemyProjectile projectilePrefab;
-        [SerializeField] private Transform muzzle;
-        [SerializeField] private int damage;
-        [SerializeField] private ShootingDirections direction;
-        [SerializeField] private float cooldown;
+        private EnemyProjectile projectilePrefab;
+        private Transform muzzle;
+        private Transform target;
+        private int damage;
+        private ShootingDirections direction;
+        private float cooldown;
+
+        private MonoBehaviour coroutineObject;
 
         private IEnemyStrategy strategy;
 
-        private void Awake()
+        public EnemyShooting(MonoBehaviour coroutineObject, EnemyProjectile projectilePrefab, Transform muzzle, int damage, ShootingDirections direction, float cooldown, Transform target = null)
         {
+            this.coroutineObject = coroutineObject;
+            this.projectilePrefab = projectilePrefab;
+            this.target = target;
+            this.muzzle = muzzle;
+            this.damage = damage;
+            this.direction = direction;
+            this.cooldown = cooldown;
+            
             switch (direction)
             {
-                default:
-                case ShootingDirections.Forward:
-                    strategy = new ForwardShootingStrategy();
-                    strategy.Initialize(muzzle, projectilePrefab, damage);
+                case ShootingDirections.Forward: 
+                    strategy = new ForwardShootingStrategy(muzzle, projectilePrefab, damage);
+                    break;
+                case ShootingDirections.Everywhere:
+                    strategy = new EverywhereShootingStrategy(target, muzzle, projectilePrefab, damage);
                     break;
             }
         }
 
-        public void Start()
+        public void StartShooting()
         {
-            StartCoroutine(ShootRoutine());
+            coroutineObject.StartCoroutine(ShootRoutine());
         }
 
-        private void OnDisable()
+        public void StopShooting()
         {
-            StopCoroutine(ShootRoutine());
-        }
-
-        private void OnDestroy()
-        {
-            StopCoroutine(ShootRoutine());
+            coroutineObject.StopCoroutine(ShootRoutine());
         }
 
         private IEnumerator ShootRoutine()
@@ -57,8 +64,7 @@ namespace Gameplay.Enemies
     public enum ShootingDirections
     {
         Forward = 0,
-        LeftHalf = 1,
-        Everywhere = 2,
+        Everywhere = 1,
     }
     
 }

@@ -13,7 +13,7 @@ namespace Gameplay.Enemies
         public void Initialize(int damage)
         {
             this.damage = damage;
-            rigidbody2D.velocity = Vector2.left * speed;
+            rigidbody2D.velocity = -transform.right * speed;
         }
         
 

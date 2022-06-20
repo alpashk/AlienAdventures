@@ -3,10 +3,16 @@ using UnityEngine;
 
 namespace Gameplay.Enemies
 {
-    public class EnemyHealth : MonoBehaviour
+    public class EnemyHealth
     {
         [SerializeField] private int health;
         public Action OnDeath;
+
+        public EnemyHealth(int health, Action onDeath)
+        {
+            this.health = health;
+            OnDeath = onDeath;
+        }
 
         public void ReceiveDamage(int damage)
         {
@@ -14,7 +20,6 @@ namespace Gameplay.Enemies
             if (health <= 0)
             {
                 OnDeath?.Invoke();
-                Destroy(gameObject);
             }
         }
     }

@@ -13,7 +13,7 @@ namespace Gameplay.Enemies.ShootingStrategies
             shotProjectile.Initialize(damage);
         }
 
-        public void Initialize(Transform muzzle, EnemyProjectile projectile, int damage)
+        public ForwardShootingStrategy(Transform muzzle, EnemyProjectile projectile, int damage)
         {
             this.muzzle = muzzle;
             this.projectile = projectile;

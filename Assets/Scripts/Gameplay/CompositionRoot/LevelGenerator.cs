@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using CompositionRoot.Gameplay;
 using Gamepaly.LevelData;
+using Gameplay.Enemies;
 using Gameplay.LevelComponents;
 using UnityEngine;
 
@@ -11,19 +13,21 @@ namespace CompositionRoot
         private LevelMover levelMover;
         private Transform levelTarget;
         private Transform stationaryLevelTarget;
+        private MainShip ship;
 
-        public LevelGenerator(LevelData levelData, LevelMover levelMover, Transform stationaryLevelTarget)
+        public LevelGenerator(LevelData levelData, LevelMover levelMover, Transform stationaryLevelTarget,
+            MainShip shipController)
         {
             this.levelData = levelData;
             this.levelMover = levelMover;
             levelTarget = levelMover.transform;
             this.stationaryLevelTarget = stationaryLevelTarget;
+            ship = shipController;
             
             GenerateBackground();
             GenerateMidground();
-
+            GenerateStationaryEnemies();
             GenerateMovingEnemies();
-
         }
 
         private void GenerateBackground()
@@ -64,6 +68,19 @@ namespace CompositionRoot
                 trajectoryHolder.transform.parent = stationaryLevelTarget;
                 EnemyTrajectoryHolder trajectory = trajectoryHolder.AddComponent<EnemyTrajectoryHolder>();
                 trajectory.Initialize(levelMover, data);
+            }
+        }
+        
+        private void GenerateStationaryEnemies()
+        {
+            foreach (StationaryEnemiesData stationaryEnemies in levelData.StationaryEnemies)
+            {
+                foreach (Vector3 position in stationaryEnemies.Positions)
+                {
+                    EnemyData enemy = GameObject.Instantiate(stationaryEnemies.Prefab, levelTarget);
+                    enemy.transform.position = position;
+                    enemy.InitializeStationary(ship.transform, levelMover);
+                }
             }
         }
         

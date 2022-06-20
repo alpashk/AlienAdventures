@@ -19,7 +19,7 @@ namespace Gameplay.Weapons
 
             if (hit.collider != null)
             {
-                EnemyHealth health;
+                EnemyData health;
                 if (hit.transform.gameObject.TryGetComponent(out health))
                 {
                     health.ReceiveDamage(damageAmount);

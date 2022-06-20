@@ -24,7 +24,7 @@ namespace CompositionRoot
         void Start()
         {
             //Loads BaseLine stats from consistent stuff
-            var levelConstructor = new LevelGenerator(levelData, levelTarget, stationaryLevelTarget);
+            var levelConstructor = new LevelGenerator(levelData, levelTarget, stationaryLevelTarget, shipController);
             
             int receivedHealth = 100;
             var healthController = new HealthController(receivedHealth);

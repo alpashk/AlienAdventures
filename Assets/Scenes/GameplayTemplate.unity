@@ -398,7 +398,7 @@ GameObject:
   - component: {fileID: 349587007}
   - component: {fileID: 349587010}
   m_Layer: 11
-  m_Name: Ship
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -697,7 +697,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &945895872
 Transform:
   m_ObjectHideFlags: 0
@@ -745,7 +745,7 @@ MonoBehaviour:
   - {x: -2.47, y: 4.22, z: 0}
   - {x: -3.23, y: 5.35, z: 0}
   - {x: -3.44, y: 6.37, z: 0}
-  enemyPrefab: {fileID: 8997614629427259848, guid: 04c29835005da5841b23724dac8a2177, type: 3}
+  enemyPrefab: {fileID: 1836272029195410773, guid: 04c29835005da5841b23724dac8a2177, type: 3}
   onPathEnd: 0
   enemyAmount: 5
   enemyDelay: 2

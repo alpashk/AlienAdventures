@@ -9,7 +9,7 @@ namespace Gameplay.LevelComponents
     public class EnemyTrajectoryHolder : MonoBehaviour
     {
         [SerializeField] private List<Vector3> movementTargets;
-        [SerializeField] private EnemyMover enemyPrefab;
+        [SerializeField] private EnemyData enemyPrefab;
         [SerializeField] private OnPathEnd onPathEnd;
         
         [SerializeField] private int enemyAmount;
@@ -17,14 +17,14 @@ namespace Gameplay.LevelComponents
 
         [SerializeField] private float startCoordinate;
 
-        private List<EnemyMover> enemies = new List<EnemyMover>();
+        private List<EnemyData> enemies = new List<EnemyData>();
         private LevelMover levelMover;
 
         #region Properties
 
         public List<Vector3> MovementTargets => movementTargets;
 
-        public EnemyMover EnemyPrefab => enemyPrefab;
+        public EnemyData EnemyPrefab => enemyPrefab;
 
         public OnPathEnd OnPathEnd => onPathEnd;
 
@@ -50,9 +50,9 @@ namespace Gameplay.LevelComponents
 
             for (int i = 0; i < enemyAmount; i++)
             {
-                EnemyMover enemy = Instantiate(enemyPrefab, transform);
+                EnemyData enemy = Instantiate(enemyPrefab, transform);
                 enemy.SetPosition(movementTargets[0]);
-                enemy.Initialize(movementTargets, onPathEnd);
+                enemy.InitializeMoving(movementTargets, onPathEnd);
                 enemy.gameObject.SetActive(false);
                 enemies.Add(enemy);
             }
@@ -77,6 +77,8 @@ namespace Gameplay.LevelComponents
             foreach (var enemy in enemies)
             {
                 enemy.gameObject.SetActive(true);
+                enemy.StartShooting();
+                enemy.StartMoving();
                 yield return new WaitForSeconds(enemyDelay);
             }
         }

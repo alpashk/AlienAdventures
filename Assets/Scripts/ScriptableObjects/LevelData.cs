@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Gameplay.Enemies;
 using Gameplay.LevelComponents;
 using UnityEngine;
 
@@ -12,6 +13,7 @@ namespace Gamepaly.LevelData
         [SerializeField] private LevelMidground midgroundPrefab;
         [SerializeField] private List<BackgroundData> backgrounds = new List<BackgroundData>();
         [SerializeField] private List<MidgroundData> midgrounds = new List<MidgroundData>();
+        [SerializeField] private List<StationaryEnemiesData> stationaryEnemies = new List<StationaryEnemiesData>();
         [SerializeField] private List<MovingEnemiesData> movingEnemies = new List<MovingEnemiesData>();
 
         public LevelBackground BackgroundPrefab => backgroundPrefab;
@@ -21,7 +23,9 @@ namespace Gamepaly.LevelData
         public List<BackgroundData> Backgrounds => backgrounds;
         
         public List<MidgroundData> Midgrounds => midgrounds;
-        
+
+        public List<StationaryEnemiesData> StationaryEnemies => stationaryEnemies;
+
         public List<MovingEnemiesData> MovingEnemies => movingEnemies;
     }
 
@@ -66,10 +70,28 @@ namespace Gamepaly.LevelData
 
 
     [Serializable]
+    public class StationaryEnemiesData
+    {
+        [SerializeField] private EnemyData prefab;
+        [SerializeField] private List<Vector3> positions;
+
+        public EnemyData Prefab => prefab;
+
+        public List<Vector3> Positions => positions;
+
+        public StationaryEnemiesData(EnemyData prefab, Vector3 position)
+        {
+            this.prefab = prefab;
+            positions = new List<Vector3> {position};
+        }
+    }
+
+
+    [Serializable]
     public class MovingEnemiesData
     {
         [SerializeField] private List<Vector3> movementTargets;
-        [SerializeField] private EnemyMover enemyPrefab;
+        [SerializeField] private EnemyData enemyPrefab;
         [SerializeField] private OnPathEnd onPathEnd;
         
         [SerializeField] private int enemyAmount;
@@ -80,7 +102,7 @@ namespace Gamepaly.LevelData
 
         public List<Vector3> MovementTargets => movementTargets;
 
-        public EnemyMover EnemyPrefab => enemyPrefab;
+        public EnemyData EnemyPrefab => enemyPrefab;
 
         public OnPathEnd ONPathEnd => onPathEnd;
 
@@ -90,7 +112,7 @@ namespace Gamepaly.LevelData
 
         public float StartCoordinate => startCoordinate;
 
-        public MovingEnemiesData(List<Vector3> movementTargets, EnemyMover enemyPrefab, OnPathEnd onPathEnd, int enemyAmount, float enemyDelay, float startCoordinate)
+        public MovingEnemiesData(List<Vector3> movementTargets, EnemyData enemyPrefab, OnPathEnd onPathEnd, int enemyAmount, float enemyDelay, float startCoordinate)
         {
             this.movementTargets = movementTargets;
             this.enemyPrefab = enemyPrefab;
